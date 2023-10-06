@@ -1,5 +1,5 @@
 #SAKSHAR PROJECT 2023 IIT JODHPUR
-SAKSHAR 2023 : Improving the content of the SAKSHAR game initially developed by IIT Delhi in association with Waseda University, Japan.
+Improving the content of the SAKSHAR game initially developed by IIT Delhi in association with Waseda University, Japan.
 
 
 #Contributors
