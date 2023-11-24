@@ -1,0 +1,13 @@
+1. Make sure you have python3 installed in your system. If not, install it.
+2. Install the necessary libraries mentioned in the requirements.txt file.
+3. Go to the 'main.py' file and run the code. You can either run it in an IDE or from the command terminal.
+4. When the 'main.py' file is run, the game begins and timings are recorded simultaneously.
+5. As soon as the game gets over, all the timings are saved in a new line in 'analytics.txt' file. You can open it to view the timings of the slides and the aggregate time in the last line.The last line consists of the latest readings.
+6. Move to the 'players.txt' file and add the name of the player, age and class separated by space in a new line.
+7. Go to the 'data.py' file and run the code. When the code is finally executed, the graphs corresponding to players' timings are saved in the same folder.
+8. Save the graphs in a new file and convert it into a pdf.
+9. You can now update the HTML code to show the latest analytics pdf in the Github repo- https://github.com/aatifxarchie/saksharanalytics.
+10. After making these changes, you can refresh the website hosted using Github Pages or create a new Project Website from Github Pages.
+11. Now, you can go to https://aatifxarchie.github.io/saksharanalytics/index.html which is the dedicated project website.
+12. Go to the 'Latest Analytics Data' page from the 'Home' page which has a downloadable link of the pdf mentioned above.
+
