@@ -29,6 +29,8 @@ char_s_scene = pygame.image.load("first_image.jpg")
 char_s_scene_status = 0
 s_command = mixer.Sound("s_command.mp3")
 a_command = mixer.Sound("a_command.mp3")
+t_command = mixer.Sound("t_command.mp3")
+
 
 #page5
 night_scene_image = pygame.image.load("night_scene.jpg")
@@ -64,6 +66,25 @@ a3_arrow = pygame.image.load("a3_arrow.png")
 
 a4_scene = pygame.image.load("a4_scene.png")
 a4_ambulance = pygame.image.load("a4_ambulance.png")
+
+
+t1_scene = pygame.image.load("t1_scene.png")
+t1_table = pygame.image.load("t1_table.png")
+t1_tent = pygame.image.load("t1_tent.png")
+t1_tiger = pygame.image.load("t1_tiger.png")
+t1_tomato = pygame.image.load("t1_tomato.png")
+
+t2_scene = pygame.image.load("t2_scene.png")
+t2_table = pygame.image.load("t2_table.png")
+t2_tent = pygame.image.load("t2_tent.png")
+t2_tree = pygame.image.load("t2_tree.png")
+
+
+t3_scene = pygame.image.load("t3_scene.png")
+t3_table = pygame.image.load("t3_table.png")
+t3_tap = pygame.image.load("t3_tap.png")
+t3_tie = pygame.image.load("t3_tie.png")
+t3_toad = pygame.image.load("t3_toad.png")
 
 #Setting the Title
 pygame.display.set_caption("Sakshar Game By Anushk Gupta and Aatif Ahmad")
@@ -119,6 +140,9 @@ winner_image_6 = pygame.image.load("win6.png")
 winner_image_7 = pygame.image.load("win7.png")
 winner_image_8 = pygame.image.load("win8.png")
 winner_image_9 = pygame.image.load("win9.png")
+winner_image_10 = pygame.image.load("win9.png")
+winner_image_11 = pygame.image.load("win9.png")
+winner_image_12 = pygame.image.load("win9.png")
 
 #sakshar image
 sakshar_image = pygame.image.load("SAKSHAR.jpg")
@@ -164,6 +188,23 @@ ambulance_text = font_new.render("ambulance", True, (0,100,210))
 
 #tmodule
 t_char_image = pygame.image.load("t_char.png")
+table_sound = mixer.Sound("table_sound.mp3")
+tap_sound = mixer.Sound("tap_sound.mp3")
+tent_sound = mixer.Sound("tent_sound.mp3")
+tie_sound = mixer.Sound("tie_sound.mp3")
+tiger_sound = mixer.Sound("tiger_sound.mp3")
+toad_sound = mixer.Sound("toad_sound.mp3")
+tomatoes_sound = mixer.Sound("tomatoes_sound.mp3")
+tree_sound = mixer.Sound("tree_sound.mp3")
+table_text = font_new.render("table", True, (0,155,0))
+tap_text = font_new.render("tap", True, (205,10,10))
+tent_text = font_new.render("tent", True, (70,70,70))
+tie_text = font_new.render("tie", True, (153,0,76))
+tiger_text = font_new.render("tiger", True, (153,0,76))
+toad_text = font_new.render("toad", True, (153,0,76))
+tomatoes_text = font_new.render("tomatoes", True, (153,0,76))
+tree_text = font_new.render("tree", True, (153,0,76))
+
 
 #sun,stones,snake and swing sound
 sun_sound = mixer.Sound("Sun.mp3")
@@ -205,6 +246,18 @@ def a4_scene_sound_play():
     level_complete_sound = mixer.Sound("success-1-6297.mp3")
     level_complete_sound.play()
 
+def t1_scene_sound_play():
+    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound.play()
+
+def t2_scene_sound_play():
+    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound.play()
+
+def t3_scene_sound_play():
+    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound.play()
+
 def forest_scene_sound_play():
     level_complete_sound = mixer.Sound("success-1-6297.mp3")
     level_complete_sound.play()
@@ -243,40 +296,6 @@ def get_speech_input():
             print("Sorry, I encountered an error while requesting the API; {0}".format(e))
             return None
 
-
-# def get_speech_input():
-#     recognizer = sr.Recognizer()
-
-#     # List available audio devices (microphones)
-#     print("Available audio devices:")
-#     microphone_names = sr.Microphone.list_microphone_names()
-#     for index, name in enumerate(microphone_names):
-#         print(f"{index}: {name}")
-
-#     # Try to find the Bluetooth speaker by name
-#     # bluetooth_speaker_name = 'JBL GO 2'
-#     # speaker_index = next((i for i, name in enumerate(microphone_names) if bluetooth_speaker_name in name), None)
-
-#     # if speaker_index is not None:
-#     #     try:
-#     #         with sr.Microphone(device_index=speaker_index) as source:
-#     #             print(f"Using {bluetooth_speaker_name} as the audio source")
-#     #             print("Say something:")
-#     #             audio = recognizer.listen(source, timeout=3)
-
-#     #         text = recognizer.recognize_google(audio)
-#     #         print("You said:", text)
-#     #         return text
-
-#     #     except sr.UnknownValueError:
-#     #         print("Sorry, I could not understand what you said.")
-#     #         return None
-#     #     except sr.RequestError as e:
-#     #         print(f"Sorry, I encountered an error while requesting the API: {e}")
-#     #         return None
-#     # else:
-#     #     print(f"{bluetooth_speaker_name} not found in the list of available audio devices.")
-#     #     return None
 
 
 
@@ -530,10 +549,52 @@ a4_ambulance_sound_status = 1
 a4_ant_sound_status = 1
 
 t_char_status = 0
+
 t1_scene_status = 0
+
+t1_table_image_status = 0 #inactive
+t1_tent_image_status = 0 #inactive
+t1_tiger_image_status = 0
+t1_tomato_image_status = 0
+t1_tomato_sound_status = 1
+t1_table_sound_status = 1
+t1_tent_sound_status = 1
+t1_tiger_sound_status = 1
+t1_delay_status = 1
+t1_scene_sound_play_status = 1
+
+t2_scene_status = 0
+
+t2_table_image_status = 0 #inactive
+t2_tent_image_status = 0 #inactive
+t2_tree_image_status = 0
+t2_tomato_image_status = 0
+t2_tomato_sound_status = 1
+t2_table_sound_status = 1
+t2_tent_sound_status = 1
+t2_tree_sound_status = 1
+t2_delay_status = 1
+t2_scene_sound_play_status = 1
+
+t3_scene_status = 0
+
+t3_tie_image_status = 0 #inactive
+t3_tap_image_status = 0 #inactive
+t3_toad_image_status = 0
+t3_table_image_status = 0
+t3_toad_sound_status = 1
+t3_table_sound_status = 1
+t3_tap_sound_status = 1
+t3_tie_sound_status = 1
+t3_delay_status = 1
+t3_scene_sound_play_status = 1
+
+
+
 
 s_command_status = 1
 a_command_status = 1
+t_command_status = 1
 
 #analytics
 time_0_0_status = 1
@@ -556,6 +617,10 @@ time_2_4_1_status = 1
 time_2_4_status = 1
 time_3_1_1_status = 1
 time_3_1_status = 1
+time_3_2_1_status = 1
+time_3_2_status = 1
+time_3_3_1_status = 1
+time_3_3_status = 1
 
 
 time_0_0 = 0
@@ -578,6 +643,10 @@ time_2_4_1 = 0
 time_2_4 = 0
 time_3_1_1 = 0
 time_3_1 = 0
+time_3_2_1 = 0
+time_3_2 = 0
+time_3_3_1 = 0
+time_3_3 = 0
 
 
 control = True #status of the main while loop
@@ -655,6 +724,33 @@ while control: #main running loop of the game screen
     my_button_42.draw()
     my_button_43 = Button("AMBULANCE",500,550,True,120,320)
     my_button_43.draw()
+            
+    my_button_46 = Button("TENT",50,400,True,100,180)
+    my_button_46.draw()
+    my_button_47 = Button("TABLE",140,600,True,75,80)
+    my_button_47.draw()
+    my_button_48 = Button("TIGER",450,540,True,105,80)
+    my_button_48.draw()
+    my_button_49 = Button("TOMATOES",780,450,True,320,150)
+    my_button_49.draw()
+
+    my_button_51 = Button("TREE",30,250,True,165,290)
+    my_button_51.draw()
+    my_button_52 = Button("TABLE",140,600,True,75,80)
+    my_button_52.draw()
+    my_button_53 = Button("TENT",420,500,True,80,180)
+    my_button_53.draw()
+    my_button_54 = Button("TOMATOES",780,450,True,320,150)
+    my_button_54.draw()
+            
+    my_button_56 = Button("TAP",25,430,True,200,150)
+    my_button_56.draw()
+    my_button_57 = Button("TIE",530,120,True,90,40)
+    my_button_57.draw()
+    my_button_58 = Button("TABLE",390,435,True,80,180)
+    my_button_58.draw()
+    my_button_59 = Button("TOAD",910,457,True,65,74)
+    my_button_59.draw()
 
     
     screen.blit(land_image,(0,0))
@@ -1374,6 +1470,9 @@ while control: #main running loop of the game screen
             t_char_status = 1
 
     if t_char_status == 1:
+        if t_command_status == 1:
+          t_command.play()
+          t_command_status = 0
         a1scene_status = 2
         a2_scene_status = 2
         a3_scene_status = 2
@@ -1391,41 +1490,295 @@ while control: #main running loop of the game screen
         input_47 = my_button_45.check_click()
         if input_47:
             t1_scene_status = 1
-    
+            
+
     if t1_scene_status == 1:
-        pass
+        screen.blit(t1_scene,(0,0))
+        if time_3_1_1_status == 1:
+            time_3_1_1 = pygame.time.get_ticks()
+            time_3_1_1_status = 0
+
+        input_48 = my_button_46.check_click()
+        if input_48:
+            t1_tent_image_status = 1
+
+        input_49 = my_button_47.check_click()
+        if input_49:
+            t1_table_image_status = 1
+
+        input_50 = my_button_48.check_click()
+        if input_50:
+            t1_tiger_image_status = 1
+
+        input_51 = my_button_49.check_click()
+        if input_51:
+            t1_tomato_image_status = 1
+
+
+    if t1_tent_image_status == 1:
+        screen.blit(t1_tent,(0,382))
+        screen.blit(tent_text,(150,300))
+        if t1_tent_sound_status == 1:
+            tent_sound.play()
+            t1_tent_sound_status = 0
+
+    if t1_table_image_status == 1:
+        screen.blit(t1_table,(0,566))
+        screen.blit(table_text,(200,560))
+        if t1_table_sound_status == 1:
+            table_sound.play()
+            t1_table_sound_status = 0
+
+    if t1_tiger_image_status == 1:
+        screen.blit(t1_tiger,(430,500))
+        screen.blit(tiger_text,(420,480))
+        if t1_tiger_sound_status == 1:
+            tiger_sound.play()
+            t1_tiger_sound_status = 0
+
+    if t1_tomato_image_status == 1:
+        screen.blit(t1_tomato,(722,350))
+        screen.blit(tomatoes_text,(650,380))
+        if t1_tomato_sound_status == 1:
+            tomatoes_sound.play()
+            t1_tomato_sound_status = 0
+
+    if t1_tent_image_status == 1 and t1_table_image_status == 1 and t1_tiger_image_status == 1 and t1_tomato_image_status == 1 and t1_delay_status == 1:
+        screen.blit(t1_tent,(0,382))
+        pygame.display.update()  # Update the screen to show the fourth image
+        time.sleep(1.0)
+        t1_delay_status = 2
+        screen.fill((255,255,255))
+        screen.blit(winner_image_10,(165,20))
+        if time_3_1_status == 1:
+            time_3_1 = pygame.time.get_ticks() - time_3_1_1
+            time_3_1_status = 0
+        if t1_scene_sound_play_status == 1:
+            t1_scene_sound_play()
+            t1_scene_sound_play_status = 0
+        my_button_50 = Button("NEXT",480,550,True,50,90)
+        my_button_50.draw()
+        input_52 = my_button_50.check_click()
+        if input_52:
+            t2_scene_status = 1
+
+    if t1_tent_image_status == 1 and t1_table_image_status == 1 and t1_tiger_image_status == 1 and t1_tomato_image_status == 1 and t1_delay_status == 2:
+        screen.fill((255,255,255))
+        screen.blit(winner_image_10,(165,20))
+        show_score(420,280,10)
+        if t1_scene_sound_play_status == 1:
+            t1_scene_sound_play()
+            t1_scene_sound_play_status = 0
+        my_button_50 = Button("NEXT",480,550,True,50,90)
+        my_button_50.draw()
+        input_52 = my_button_50.check_click()
+        if input_52:
+            t2_scene_status = 1
+
+
+    if t2_scene_status == 1:
+        screen.blit(t2_scene,(0,0))
+
+        if time_3_2_1_status == 1:
+            time_3_2_1 = pygame.time.get_ticks()
+            time_3_2_1_status = 0
+
+        input_53 = my_button_51.check_click()
+        if input_53:
+            t2_tree_image_status = 1
+
+        input_54 = my_button_52.check_click()
+        if input_54:
+            t2_table_image_status = 1
+
+        input_55 = my_button_53.check_click()
+        if input_55:
+            t2_tent_image_status = 1
+
+        input_56 = my_button_54.check_click()
+        if input_56:
+            t2_tomato_image_status = 1
+
+        
+    if t2_tent_image_status == 1:
+        screen.blit(t2_tent,(399,483))
+        screen.blit(tent_text,(450,400))
+        if t2_tent_sound_status == 1:
+            tent_sound.play()
+            t2_tent_sound_status = 0
+
+    if t2_tree_image_status == 1:
+        screen.blit(t2_tree,(0,211))
+        screen.blit(tree_text,(100,130))
+        if t2_tree_sound_status == 1:
+            tree_sound.play()
+            t2_tree_sound_status = 0
+
+    if t2_table_image_status == 1:
+        screen.blit(t2_table,(3,560))
+        screen.blit(table_text,(240,600))
+        if t2_table_sound_status == 1:
+            table_sound.play()
+            t2_table_sound_status = 0
+
+    if t2_tomato_image_status == 1:
+        screen.blit(t1_tomato,(722,350))
+        screen.blit(tomatoes_text,(650,380))
+        if t2_tomato_sound_status == 1:
+            tomatoes_sound.play()
+            t2_tomato_sound_status = 0
+
+    if t2_tent_image_status == 1 and t2_table_image_status == 1 and t2_tree_image_status == 1 and t2_tomato_image_status == 1 and t2_delay_status == 1:
+        screen.blit(t2_tent,(399,483))
+        pygame.display.update()  # Update the screen to show the fourth image
+        time.sleep(1.0)
+        t2_delay_status = 2
+        screen.fill((255,255,255))
+        screen.blit(winner_image_11,(165,20))
+        if time_3_2_status == 1:
+            time_3_2 = pygame.time.get_ticks() - time_3_2_1
+            time_3_2_status = 0
+        if t2_scene_sound_play_status == 1:
+            t2_scene_sound_play()
+            t2_scene_sound_play_status = 0
+        my_button_55 = Button("NEXT",480,550,True,50,90)
+        my_button_55.draw()
+        input_57 = my_button_55.check_click()
+        if input_57:
+            t3_scene_status = 1
+
+    if t2_tent_image_status == 1 and t2_table_image_status == 1 and t2_tree_image_status == 1 and t2_tomato_image_status == 1 and t2_delay_status == 2:
+        screen.fill((255,255,255))
+        screen.blit(winner_image_11,(165,20))
+        show_score(420,280,11)
+        if t2_scene_sound_play_status == 1:
+            t2_scene_sound_play()
+            t2_scene_sound_play_status = 0
+        my_button_55 = Button("NEXT",480,550,True,50,90)
+        my_button_55.draw()
+        input_57 = my_button_55.check_click()
+        if input_57:
+            t3_scene_status = 1
+
+
+    if t3_scene_status == 1:
+        screen.blit(t3_scene,(0,0))
+
+        if time_3_3_1_status == 1:
+            time_3_3_1 = pygame.time.get_ticks()
+            time_3_3_1_status = 0
+
+        input_58 = my_button_56.check_click()
+        if input_58:
+            t3_tap_image_status = 1
+
+        input_59 = my_button_57.check_click()
+        if input_59:
+            t3_tie_image_status = 1
+
+        input_60 = my_button_58.check_click()
+        if input_60:
+            t3_table_image_status = 1
+
+        input_61 = my_button_59.check_click()
+        if input_61:
+            t3_toad_image_status = 1
+
+
+    if t3_tap_image_status == 1:
+        screen.blit(t3_tap,(0,395))
+        screen.blit(tap_text,(50,320))
+        if t3_tap_sound_status == 1:
+            tap_sound.play()
+            t3_tap_sound_status = 0
+
+    if t3_tie_image_status == 1:
+        screen.blit(t3_tie,(481,0))
+        screen.blit(tie_text,(350,130))
+        if t3_tie_sound_status == 1:
+            tie_sound.play()
+            t3_tie_sound_status = 0
+
+    if t3_table_image_status == 1:
+        screen.blit(t3_table,(373,420))
+        screen.blit(table_text,(440,350))
+        if t3_table_sound_status == 1:
+            table_sound.play()
+            t3_table_sound_status = 0
+
+    if t3_toad_image_status == 1:
+        screen.blit(t3_toad,(897,443))
+        screen.blit(toad_text,(780,390))
+        if t3_toad_sound_status == 1:
+            toad_sound.play()
+            t3_toad_sound_status = 0
+
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 1:
+        screen.blit(t3_tap,(0,395))
+        pygame.display.update()  # Update the screen to show the fourth image
+        time.sleep(1.0)
+        t3_delay_status = 2
+        screen.fill((255,255,255))
+        screen.blit(winner_image_12,(165,20))
+        if time_3_3_status == 1:
+            time_3_3 = pygame.time.get_ticks() - time_3_3_1
+            time_3_3_status = 0
+        if t3_scene_sound_play_status == 1:
+            t3_scene_sound_play()
+            t3_scene_sound_play_status = 0
+        my_button_60 = Button("NEXT",480,550,True,50,90)
+        my_button_60.draw()
+        input_62 = my_button_60.check_click()
+        if input_62:
+            last_scene_status = 1
+
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2:
+        screen.fill((255,255,255))
+        screen.blit(winner_image_12,(165,20))
+        show_score(420,280,12)
+        if t3_scene_sound_play_status == 1:
+            t3_scene_sound_play()
+            t3_scene_sound_play_status = 0
+        my_button_60 = Button("NEXT",480,550,True,50,90)
+        my_button_60.draw()
+        input_62 = my_button_60.check_click()
+        if input_62:
+            last_scene_status = 1
+
+
+
     
     pygame.draw.rect(screen,(224, 176, 255),(1000,0,200,700))
-    my_button_46 = Button2("END GAME",1007,20,True,47,183,False)
-    my_button_46.check_hover()
-    my_button_46.draw()
+    my_button_61 = Button2("END GAME",1007,20,True,47,183,False)
+    my_button_61.check_hover()
+    my_button_61.draw()
 
-    my_button_47 = Button3("S",1057,170,True,93,77,False)
-    my_button_47.check_hover()
-    my_button_47.draw()
+    my_button_62 = Button3("S",1057,170,True,93,77,False)
+    my_button_62.check_hover()
+    my_button_62.draw()
 
-    my_button_48 = Button3("A",1057,370,True,92,77,False)
-    my_button_48.check_hover()
-    my_button_48.draw()
+    my_button_63 = Button3("A",1057,370,True,92,77,False)
+    my_button_63.check_hover()
+    my_button_63.draw()
 
-    my_button_49 = Button3("T",1057,570,True,92,77,False)
-    my_button_49.check_hover()
-    my_button_49.draw()
+    my_button_64 = Button3("T",1057,570,True,92,77,False)
+    my_button_64.check_hover()
+    my_button_64.draw()
 
-    input_60 = my_button_46.check_click()
-    if input_60 :
+    input_63 = my_button_61.check_click()
+    if input_63 :
         control = False
 
-    input_61 = my_button_47.check_click()
-    if input_61 :
+    input_64 = my_button_62.check_click()
+    if input_64 :
         char_s_image_status = 1
 
-    input_62 = my_button_48.check_click()
-    if input_62 :
+    input_65 = my_button_63.check_click()
+    if input_65 :
         char_a_image_status = 1
 
-    input_63 = my_button_49.check_click()
-    if input_63 :
+    input_66 = my_button_64.check_click()
+    if input_66 :
         t_char_status = 1
 
     pygame.display.update()
@@ -1434,7 +1787,8 @@ while control: #main running loop of the game screen
 end_time = pygame.time.get_ticks()
 total_game_time = end_time - start_time
 
-with open('analytics.txt','w') as file:
+with open('analytics.txt','a') as file:
     file.write(str(time_1_1) + " " + str(time_1_2) + " " +str(time_1_3) + " " +str(time_1_4) + 
                " " +str(time_1_5) + " " +str(time_2_1) + " " + str(time_2_2) + " " +str(time_2_3)
-               + " " +str(time_2_4) + " " + str(total_game_time))
+               + " " +str(time_2_4) + " " + str(time_3_1) + " " + str(time_3_2) + " " + 
+               str(time_3_3) + " " + str(total_game_time)+"\n")
