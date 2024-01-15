@@ -1,0 +1,51 @@
+/* Styles for desktop screens */
+body {
+    background-image: url("back3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default body margin */
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 72px;
+    letter-spacing: 0.5rem;
+    word-spacing: 1rem;
+    color: rgb(208, 231, 252);
+    padding-left: 28rem;
+    margin: 0; /* Remove default margin */
+}
+
+.home {
+    margin-left: 81rem;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover {
+    color: rgb(100, 210, 237);
+}
+
+/* Style the figure element */
+.fig {
+    padding-left: 23%;
+}
+
+/* Media query for screens with a maximum width of 768px (typical mobile devices) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px; /* Reduce font size for mobile devices */
+        padding-left: 1rem; /* Adjust left padding for mobile devices */
+    }
+
+    .home {
+        margin-left: 1rem; /* Adjust margin for mobile devices */
+        font-size: 1rem; /* Reduce font size for mobile devices */
+    }
+
+    .fig {
+        padding-left: 10%; /* Adjust padding for mobile devices */
+    }
+}

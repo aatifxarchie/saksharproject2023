@@ -158,6 +158,8 @@ forest_spider_text = font_new.render("spider",True,(240,30,30))
 stars_text = font_new.render("stars",True,(240,230,30))
 six_text = font_new.render("six",True,(0,0,200))
 
+speak_text = font_new.render("Speak - \"There are ___ stars\"",True,(0,0,200))
+
 
 #a1_scene
 ant_sound = mixer.Sound("ant_sound.mp3")
@@ -168,7 +170,7 @@ axe_text = font_new.render("axe", True, (70,70,70))
 ant_text = font_new.render("ant", True, (153,0,76))
 
 
-#a2_scene
+#a2_scene 
 ant_sound = mixer.Sound("ant_sound.mp3")
 apples_sound = mixer.Sound("apples_sound.mp3")
 axe_sound = mixer.Sound("axe_sound.mp3")
@@ -1087,6 +1089,7 @@ while control: #main running loop of the game screen
     if stars_scene_status == 1:
         post_branch_scene_status = 2 # so that it does not pop up again
         screen.blit(stars_scene,(0,0))
+        
         if time_1_5_1_status == 1:
             time_1_5_1 = pygame.time.get_ticks()
             time_1_5_1_status = 0

@@ -1,0 +1,55 @@
+/* Styles for desktop screens */
+body {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default body margin */
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 72px;
+    letter-spacing: 0.5rem;
+    word-spacing: 1rem;
+    padding-left: 13rem;
+    margin: 0; /* Remove default header margin */
+}
+
+.commands {
+    text-align: center;
+    margin: 4rem 0; /* Adjust vertical margin */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    line-height: 2rem;
+    padding: 0 32rem; /* Adjust horizontal padding */
+}
+
+hr {
+    width: 33%;
+    margin: 0 auto; /* Center the HR elements */
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover {
+    color: rgb(100, 210, 237);
+}
+
+/* Media query for screens with a maximum width of 768px (typical mobile devices) */
+@media (max-width: 768px) {
+    header {
+        font-size: 36px; /* Reduce font size for mobile devices */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .commands {
+        padding: 0 1rem; /* Adjust horizontal padding for mobile devices */
+    }
+}
